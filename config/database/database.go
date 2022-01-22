@@ -3,6 +3,7 @@ package database
 import (
 	"context"
 	"log"
+	"os"
 
 	"cloud.google.com/go/firestore"
 	firebase "firebase.google.com/go"
@@ -10,7 +11,7 @@ import (
 
 func GetDatabase() (*firestore.Client, context.Context) {
 	ctx := context.Background()
-	conf := &firebase.Config{ProjectID: "java-tests-123"}
+	conf := &firebase.Config{ProjectID: os.Getenv("GCP_PROJECT")}
 	app, err := firebase.NewApp(ctx, conf)
 	if err != nil {
 		log.Fatalln(err)
