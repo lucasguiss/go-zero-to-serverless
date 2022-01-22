@@ -8,3 +8,8 @@ import (
 func CreatePost(post models.Post) {
 	repository.CreatePost(post)
 }
+
+func FindAllPosts() []models.Post {
+	posts := repository.FindAllPosts()
+	return posts
+}

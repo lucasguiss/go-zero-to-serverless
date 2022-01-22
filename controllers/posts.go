@@ -19,4 +19,12 @@ func CreatePost(c *gin.Context) {
 	}
 
 	services.CreatePost(post)
+
+	c.Status(204)
+}
+
+func FindAllPosts(c *gin.Context) {
+	posts := services.FindAllPosts()
+
+	c.JSON(200, posts)
 }

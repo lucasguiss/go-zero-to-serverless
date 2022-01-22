@@ -11,6 +11,7 @@ func ConfigRoutes(router *gin.Engine) *gin.Engine {
 		posts := main.Group("posts")
 		{
 			posts.POST("/", controllers.CreatePost)
+			posts.GET("/", controllers.FindAllPosts)
 		}
 	}
 	return router
